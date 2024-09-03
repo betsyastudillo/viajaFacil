@@ -1,25 +1,22 @@
-import random
-
-
 vueloCompra = {
   "ciudadOrigen": '',
   "ciudadDestino": {
         '1': "Armenia: Aeropuerto Internacional El Edén", 
         '2': "Pereira: Aeropuerto Internacional Matecaña", 
         '3': "Manizales: Aeropuerto La Nubia"
-        },
+  },
   "fechaIda": '',
   "fechaRegreso": '',
   "horarioSalidaIda": {
         '1': '05:30 am', '2': '09:30 am', '3': '01:20 pm', '4': '05:20 pm', '5': '09:20 pm'
-      },
+  },
   "horarioSalidaVuelta": {
         '1': '05:30 am', '2': '09:30 am', '3': '01:20 pm', '4': '05:20 pm', '5': '09:20 pm'
-      },
+  },
 }
 
 
-inicio = input("Bienvenid@ al área de vuelos. Seleccione la opción que busca: 1. Buscar Vuelos, 2. Ver Boletos: ")
+inicio = input("Bienvenid@ al área de vuelos")
 
 if inicio == '1':
   # Escoge la ciudad de origen
@@ -41,21 +38,19 @@ if inicio == '1':
 
   # Escoge los horarios del vuelo de ida:
   print("Seleccione una hora de salida para el vuelo de ida:")
-  hora_aleat = random.sample(list(vueloCompra['horarioSalidaIda'].items()), 5)
-  for key, value in hora_aleat:
+  for key, value in vueloCompra['horarioSalidaIda'].items():
     print(f"{key}. {value}")
   
   hora_ida = input("Ingrese la opción de horario de ida que desea:\n")
-  vueloCompra['horarioSalidaIda'] = dict(hora_aleat).get(hora_ida, "Horario no válido") 
+  vueloCompra['horarioSalidaIda'] = vueloCompra['horarioSalidaIda'].get(hora_ida, "Horario no válido")
   
   # Escoge los horarios del vuelo de ida:
   print("Seleccione una hora de salida para el vuelo de regreso:")
-  hora_aleat_vuelta = random.sample(list(vueloCompra['horarioSalidaVuelta'].items()), 5)
-  for key, value in hora_aleat:
+  for key, value in vueloCompra['horarioSalidaVuelta']:
     print(f"{key}. {value}")
   
   hora_vuelta = input("Ingrese la opción de horario de regreso que desea:\n")
-  vueloCompra['horarioSalidaVuelta'] = dict(hora_aleat_vuelta).get(hora_vuelta, "Horario no válido") 
+  vueloCompra['horarioSalidaVuelta'] = vueloCompra['horarioSalidaVuelta'].get(hora_vuelta, "Horario no válido") 
 
 
   # Confirmemos la compra:
@@ -65,7 +60,6 @@ if inicio == '1':
   print(f"Fecha ida: {vueloCompra['fechaIda']}")
   print(f"Fecha de regreso: {vueloCompra['fechaRegreso']}")
   print(f"Horario de salida viaje de ida: {vueloCompra['horarioSalidaIda']}")
-  print(f"Horario de salida viaje de regreso: {vueloCompra['horarioSalidaVuelta']}")
   print(f"Horario de salida viaje de regreso: {vueloCompra['horarioSalidaVuelta']}")
 
   if vueloCompra['ciudadOrigen'] == 'cali':
