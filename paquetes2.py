@@ -41,21 +41,30 @@ for paquete in [Paquete1, Paquete2, Paquete3, Paquete4, Paquete5]:
         print(f"{key}: {value}")
     print()
 
-try:
-    i = int(input("Ingrese la opción de su preferencia (1-5): "))
-except ValueError:
-    print("Entrada inválida. Por favor, ingrese un número del 1 al 5.")
-    exit()
+i = 0
 
-def paquete(i):
-    seleccion = {
-        1: "Perfecto, haz seleccionado: "+Paquete1["1"],
-        2: "Perfecto, haz seleccionado: "+Paquete2["2"],
-        3: "Perfecto, haz seleccionado: "+Paquete3["3"],
-        4: "Perfecto, haz seleccionado: "+Paquete4["4"],
-        5: "Perfecto, haz seleccionado: "+Paquete5["5"]
-    }
-    return seleccion.get(i, "Opcion no disponible")
+while i < 1 or i > 5:
+    i = int(input("Ingrese la opción de su preferencia: "))
 
-print(paquete(i))
-
+    if i == 1:
+        print("Perfecto, has seleccionado:")
+        for key, value in Paquete1.items():
+            print(f"{key}: {value}")
+    elif i == 2:
+        print("Perfecto, has seleccionado:")
+        for key, value in Paquete2.items():
+            print(f"{key}: {value}")
+    elif i == 3:
+        print("Perfecto, has seleccionado:")
+        for key, value in Paquete3.items():
+            print(f"{key}: {value}")
+    elif i == 4:
+        print("Perfecto, has seleccionado:")
+        for key, value in Paquete4.items():
+            print(f"{key}: {value}")
+    elif i == 5:
+        print("Perfecto, has seleccionado:")
+        for key, value in Paquete5.items():
+            print(f"{key}: {value}")
+    else:
+        print("Respuesta no válida. Inténtelo de nuevo.")
